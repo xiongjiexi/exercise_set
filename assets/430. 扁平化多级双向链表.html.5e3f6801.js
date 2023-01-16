@@ -1,0 +1,32 @@
+import{_ as n,o as s,c as a,a as p}from"../app.99e1ebfc.mjs";const e={},t=p(`<h1 id="_430-\u6241\u5E73\u5316\u591A\u7EA7\u53CC\u5411\u94FE\u8868" tabindex="-1"><a class="header-anchor" href="#_430-\u6241\u5E73\u5316\u591A\u7EA7\u53CC\u5411\u94FE\u8868" aria-hidden="true">#</a> 430. \u6241\u5E73\u5316\u591A\u7EA7\u53CC\u5411\u94FE\u8868</h1><div class="language-java ext-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">Node</span> <span class="token function">flatten</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Node</span> ans <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Node</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">Node</span> parent<span class="token punctuation">,</span> <span class="token class-name">Node</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>parent <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            parent<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+            head<span class="token punctuation">.</span>prev <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+            parent<span class="token punctuation">.</span>child <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token class-name">Node</span> ans <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span> next <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token class-name">Node</span> child <span class="token operator">=</span> head<span class="token punctuation">.</span>child<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>child <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                head <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    head<span class="token punctuation">.</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span>
+                    next<span class="token punctuation">.</span>prev <span class="token operator">=</span> head<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                
+            <span class="token punctuation">}</span>
+            ans <span class="token operator">=</span> head<span class="token punctuation">;</span>
+            head <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,2),o=[t];function c(l,i){return s(),a("div",null,o)}const d=n(e,[["render",c],["__file","430. \u6241\u5E73\u5316\u591A\u7EA7\u53CC\u5411\u94FE\u8868.html.vue"]]);export{d as default};
